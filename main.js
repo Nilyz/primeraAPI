@@ -1,6 +1,6 @@
 console.log("hola");
 
-const URL='https://api.thecatapi.com/v1/images/search';
+const URL='https://api.thecatapi.com/v1/images/search?limit=10&page=0';
 
 /*fetch(URL)
     .then(res => res.json())
@@ -9,14 +9,21 @@ const URL='https://api.thecatapi.com/v1/images/search';
         img.src = data[0].url;
     })
 */
-const img =document.querySelector('img');
+
 
 const cambiarImagen = async () => {
     const res = await fetch(URL);
     const data = await res.json();
-    img.src = data[0].url;
+    img1.src = data[0].url;
+    img2.src = data[1].url;
+    img3.src = data[2].url;
+    console.log(data)
 }
 
 let boton = document.getElementById('btn');
 cambiarImagen()
 boton.addEventListener('click',cambiarImagen)
+
+let img1 = document.getElementById('img1');
+let img2 = document.getElementById('img2');
+let img3 = document.getElementById('img3');
