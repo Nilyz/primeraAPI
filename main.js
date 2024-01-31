@@ -1,6 +1,6 @@
-console.log("hola");
 
-const URL='https://api.thecatapi.com/v1/images/search?limit=10&page=0';
+
+const URL='https://api.thecatapi.com/v1/images/search?limit=10&page=0&api_key=live_5v8rcjNV9f0gPMwDNBaqrKm6rNTyP2fwj7ylWCxxCvJwCMdTrQF9df4LiJTupue9';
 
 /*fetch(URL)
     .then(res => res.json())
