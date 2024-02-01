@@ -22,7 +22,17 @@ const cambiarTresImagenRandoms = async () => {
     console.log("randoms", data);
     img1.src = data[0].url;
     img2.src = data[1].url;
+
+    let img1 = document.getElementById("img1");
+    let img2 = document.getElementById("img2");
+
+    let btn_fav1 = document.getElementById("btn_fav1");
+    btn_fav1.addEventListener("click", guardarFavoritos);
+
+    let btn_fav2 = document.getElementById("btn_fav2");
+    btn_fav2.addEventListener("click", guardarFavoritos);
 };
+
 const favoritosMichis = async () => {
     const res = await fetch(URL_favoritos);
     if (res.status < 200 || res.status > 299) {
@@ -41,13 +51,14 @@ const favoritosMichis = async () => {
 
         btn.appendChild(btnText);
         imagen.src = michi.image.url;
+        imagen.width = 150;
         article.appendChild(imagen);
         article.appendChild(btn);
         section.appendChild(article);
     });
 };
 
-const guardarFavoritos = async () => {
+const guardarFavoritos = async (id) => {
     console.log("entrando a favoritos");
     const res = await fetch(URL_favoritos, {
         method: "POST",
@@ -55,7 +66,7 @@ const guardarFavoritos = async () => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            image_id: "10q",
+            image_id: id,
         }),
     });
 
@@ -69,14 +80,5 @@ const guardarFavoritos = async () => {
 let boton = document.getElementById("btn");
 boton.addEventListener("click", cambiarTresImagenRandoms);
 
-let btn_fav1 = document.getElementById("btn_fav1");
-btn_fav1.addEventListener("click", guardarFavoritos);
-
-let btn_fav2 = document.getElementById("btn_fav2");
-btn_fav2.addEventListener("click", guardarFavoritos);
-
 cambiarTresImagenRandoms();
 favoritosMichis();
-
-let img1 = document.getElementById("img1");
-let img2 = document.getElementById("img2");
