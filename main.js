@@ -30,31 +30,40 @@ const favoritosMichis = async () => {
         return null;
     }
     const data = await res.json();
-    data.forEach(() => { 
-        
-    })
+
     console.log("favoritos", data);
+    data.forEach((michi) => {
+        const section = document.getElementById("michisFav");
+        const article = document.createElement("article");
+        const imagen = document.createElement("img");
+        const btn = document.createElement("button");
+        const btnText = document.createTextNode("sacar de favoritos");
+
+        btn.appendChild(btnText);
+        imagen.src = michi.image.url;
+        article.appendChild(imagen);
+        article.appendChild(btn);
+        section.appendChild(article);
+    });
 };
 
-
 const guardarFavoritos = async () => {
-    console.log('entrando a favoritos')
+    console.log("entrando a favoritos");
     const res = await fetch(URL_favoritos, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            image_id: "10q"
+            image_id: "10q",
         }),
     });
-    
+
     if (res.status < 200 || res.status > 299) {
         spanError.innerHTML = "Hubo un error: " + res.status;
     }
 
     console.log(res);
-
 };
 
 let boton = document.getElementById("btn");
