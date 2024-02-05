@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miaw</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./main.js" defer></script>
+    
 </head>
 <body>
     <h1>Gatos randoms</h1>
@@ -15,16 +17,19 @@
             <img id="img1" alt="fotos de gatos" width="200px">
             <button id="btn_fav1">Guardar en favoritos</button>
         </article>
-
         <article class="">
             <img id="img2" alt="fotos de gatos" width="200px">
             <button id="btn_fav2">Guardar en favoritos</button>
         </article>
-
         <button id="btn"> recargar</button>
-
     </section>
-    
+    <section id="uploading">
+        <h2>sube foto de tu gato</h2>
+        <form action="uploadingForm" id="uploadingForm">
+            <input id="file" type="file" name="file">
+            <button type="button" id="botonSubirFoto">Subir foto</button>
+        </form>
+    </section>
     <div class="">
         <h2>Favoritos</h2>
         <section id="michisFav">
@@ -33,11 +38,9 @@
                 <img id="img3" alt="fotos de gatos" width="200px">
                 <button id="btn_sacarFav">Sacar de favoritos</button>
             </article>-->
-    
+            
         </section>
     </div>
-   
-
-     
+    
 </body>
 </html>
